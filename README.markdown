@@ -8,7 +8,7 @@
 
 ## About :books:
 
-
+This app is a design experiment and implements the age-old guessing game of guessing numbers once again!
 
 ## Download :inbox_tray:
 
