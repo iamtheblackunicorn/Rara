@@ -1,10 +1,10 @@
 <p align="center">
- <img src="https://github.com/iamtheblackunicorn/df0045/raw/main/assets/images/banner.png"/>
+ <img src="https://github.com/iamtheblackunicorn/rara/raw/main/assets/images/banner.png"/>
 </p>
 
 # RARA :rainbow:
 
-** :eagle:
+*The old challenge of the guessing game, revisited!* :rainbow:
 
 ## About :books:
 
