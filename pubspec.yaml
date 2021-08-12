@@ -1,5 +1,5 @@
 name: rara
-description: Guess the number.
+description: The old challenge of the guessing game, revisited!
 publish_to: 'none'
 version: 1.0.0+1
 environment:
@@ -7,10 +7,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 flutter:
   generate: true
   uses-material-design: true
   fonts:
-    - family:
+    - family: LSD
       fonts:
-        - asset: assets/fonts/.ttf
+        - asset: assets/fonts/LSD.ttf

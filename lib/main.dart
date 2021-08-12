@@ -1,20 +1,59 @@
+/*
+RaRa by Alexander Abraham, "The Black Unicorn".
+Licensed under the MIT license.
+*/
+
+/// Importing this for to
+/// use the [Random] class.
 import 'dart:math';
+/// Importing this for to
+/// use all of Flutter's components.
 import 'package:flutter/material.dart';
 
+/// This section contains all
+/// the variables for this app.
+/// Slight modifications can be
+/// made here.
+double lineWidth = 6.0;
+String defaultFont = 'LSD';
+Color fontColor = Color(0xFFFFFFFF);
+Color buttonFontColor = Color(0xFF000000);
+Color gradientOne = Color(0xFFFA8E00);
+Color gradientTwo = Color(0xFFFAF600);
+String resetButtonText = 'RESET';
+String submitButtonText = 'SUBMIT';
+String guessPlaceHolder = 'YOUR GUESS';
+String guessedItText = 'YOU GUESSED IT!';
+String tooHighText = 'TOO HIGH!';
+String tooLowText = 'TOO LOW!';
+String noInputText = 'NO I/O!';
+double stdPadding = 20;
+double numOne = 30;
+double numTwo = 30;
+double numThree = 20;
+double numFour = 25;
+int randCeiling = 1000;
+
+/// Main entry point for
+/// the Dart VM.
 void main() {
   runApp(
     new MaterialApp(
       home: new Rara(),
-      debugShowCheckedModeBanner: false
+      debugShowCheckedModeBanner: false,
     )
   );
 }
 
+/// This class implements the stateful
+/// components of the app's main class.
 class Rara extends StatefulWidget {
   RaraState createState() {
     return RaraState();
   }
 }
+/// This class actually returns the
+/// widget tree.
 class RaraState extends State<Rara> {
   late Random randInst;
   late String randNum;
@@ -24,8 +63,8 @@ class RaraState extends State<Rara> {
   void initState() {
     super.initState();
     randInst = new Random();
-    randNum = randInst.nextInt(1000).toString();
-    statusText = 'No I/O!';
+    randNum = randInst.nextInt(randCeiling).toString();
+    statusText = noInputText;
     userGuess = 0.toString();
   }
   @override
@@ -34,19 +73,19 @@ class RaraState extends State<Rara> {
     int randNumber = int.parse(randNum);
     if (userGuess == randNumber){
       setState((){
-        statusText = 'You guessed it!';
+        statusText = guessedItText;
       });
       resetGuess();
     }
     else {
       if (userGuess > randNumber) {
         setState((){
-          statusText = 'Are ya a plane?';
+          statusText = tooHighText;
         });
       }
       else {
         setState((){
-          statusText = 'You a mole?';
+          statusText = tooLowText;
         });
       }
     }
@@ -55,8 +94,10 @@ class RaraState extends State<Rara> {
   void resetGuess() {
     setState((){
       randInst = new Random();
-      randNum = randInst.nextInt(1000).toString();
-      statusText = 'RESET!';
+      int increment = 1;
+      randCeiling = randCeiling * (increment++);
+      randNum = randInst.nextInt(randCeiling).toString();
+      statusText = resetButtonText;
     });
   }
   @override
@@ -70,116 +111,128 @@ class RaraState extends State<Rara> {
           child: new Column(
             children: <Widget> [
               new SizedBox(
-                height: 50,
+                height: numOne,
               ),
               new Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(stdPadding),
                 child: new Text(
-                  '$statusText',
+                  statusText,
                   style: new TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold
+                    color: fontColor,
+                    fontSize: numFour,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: defaultFont
                   )
                 )
               ),
               new Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(stdPadding),
                 child: new Text(
-                  '$userGuess',
+                  userGuess,
                   style: new TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold
+                    color: fontColor,
+                    fontSize: numFour,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: defaultFont
                   )
                 )
               ),
               new Padding(
-                padding: EdgeInsets.all(60),
+                padding: EdgeInsets.all(numTwo),
                 child: new TextField(
-                  cursorColor: Color(0xFFFFFFFF),
-                  cursorWidth: 6.0,
+                  cursorColor: fontColor,
+                  cursorWidth: lineWidth,
                   controller: inputController,
                   decoration: new InputDecoration(
                     counterText: '',
-                    hintText: 'Your Guess',
+                    hintText: guessPlaceHolder,
                     hintStyle: TextStyle(
-                      fontSize: 30,
-                      color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.bold
+                      fontSize: numTwo,
+                      color: fontColor,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: defaultFont
                     ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xFFFFFFFF),
-                        width: 6.0
+                        color: fontColor,
+                        width: lineWidth
                       ),
                     ),
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xFFFFFFFF),
-                        width: 6.0,
+                        color: fontColor,
+                        width: lineWidth
                       ),
                     ),
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xFFFFFFFF),
-                        width: 6.0
+                        color: fontColor,
+                        width: lineWidth
                       ),
                     ),
                   ),
                   style: TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold
+                    color: fontColor,
+                    fontSize: numTwo,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: defaultFont
                   )
                 )
               ),
               new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget> [
-                  new Padding(padding:EdgeInsets.all(50),child:new RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)
-                    ),
-                    onPressed: () {
-                      evaluateGuess(inputController.text);
-                      setState((){
-                        userGuess = inputController.text;
-                      });
-                    },
-                    color: Color(0xFFFFFFFF),
-                    child: new Padding(
-                      padding: EdgeInsets.all(20),
-                      child: new Text(
-                        'SUBMIT',
-                        style: new TextStyle(
-                          color: Color(0xFF000000),
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold
+                  new Padding(
+                    padding:EdgeInsets.all(numOne),
+                    child: new RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(numTwo)
+                      ),
+                      onPressed: () {
+                        evaluateGuess(inputController.text);
+                        setState((){
+                          userGuess = inputController.text;
+                        });
+                      },
+                      color: fontColor,
+                      child: new Padding(
+                        padding: EdgeInsets.all(stdPadding),
+                        child: new Text(
+                          submitButtonText,
+                          style: new TextStyle(
+                            color: buttonFontColor,
+                            fontSize: numFour,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: defaultFont
+                          )
                         )
                       )
                     )
-                  )),
-                  new Padding(padding:EdgeInsets.all(50),child:new RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)
-                    ),
-                    onPressed: () {
-                      resetGuess();
-                    },
-                    color: Color(0xFFFFFFFF),
-                    child: new Padding(
-                      padding: EdgeInsets.all(20),
-                      child: new Text(
-                        'RESET',
-                        style: new TextStyle(
-                          color: Color(0xFF000000),
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold
+                  ),
+                  new Padding(
+                    padding:EdgeInsets.all(numOne),
+                    child:new RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(numTwo)
+                      ),
+                      onPressed: () {
+                        resetGuess();
+                      },
+                      color: fontColor,
+                      child: new Padding(
+                        padding: EdgeInsets.all(stdPadding),
+                        child: new Text(
+                          resetButtonText,
+                          style: new TextStyle(
+                            color: buttonFontColor,
+                            fontSize: numFour,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: defaultFont
+                          )
                         )
                       )
                     )
-                  ))
+                  )
                 ]
               )
             ]
@@ -190,8 +243,8 @@ class RaraState extends State<Rara> {
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
             colors: <Color> [
-              Color(0xFFFA8E00),
-              Color(0xFFFAF600)
+              gradientOne,
+              gradientTwo
             ]
           )
         )
