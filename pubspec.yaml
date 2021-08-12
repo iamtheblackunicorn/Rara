@@ -1,0 +1,16 @@
+name: rara
+description: Guess the number.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: ">=2.10.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  generate: true
+  uses-material-design: true
+  fonts:
+    - family:
+      fonts:
+        - asset: assets/fonts/.ttf
