@@ -12,7 +12,9 @@ This app is a design experiment and implements the age-old guessing game of gues
 
 ## Download :inbox_tray:
 
-***STILL W.I.P.***
+- *Mulliner* (v.1.0.0):
+  - [Download for Android](https://github.com/iamtheblackunicorn/rara/releases/download/v.1.0.0/RaRa-v1.0.0-Mulliner-Release.apk) (16.9 MB)
+  - [Download for Mac OSX](https://github.com/iamtheblackunicorn/rara/releases/download/v.1.0.0/RaRa-v1.0.0-Mulliner-Release.app.zip) (12.3 MB)
 
 ## Building :hammer:
 

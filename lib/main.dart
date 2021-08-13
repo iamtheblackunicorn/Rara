@@ -27,11 +27,12 @@ String guessedItText = 'YOU GUESSED IT!';
 String tooHighText = 'TOO HIGH!';
 String tooLowText = 'TOO LOW!';
 String noInputText = 'NO I/O!';
-double stdPadding = 20;
+double stdPadding = 10;
 double numOne = 30;
 double numTwo = 30;
 double numThree = 20;
 double numFour = 25;
+double specNum = 200;
 int randCeiling = 1000;
 
 /// Main entry point for
@@ -111,7 +112,7 @@ class RaraState extends State<Rara> {
           child: new Column(
             children: <Widget> [
               new SizedBox(
-                height: numOne,
+                height: specNum,
               ),
               new Padding(
                 padding: EdgeInsets.all(stdPadding),
