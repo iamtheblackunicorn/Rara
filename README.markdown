@@ -15,6 +15,9 @@ This app is a design experiment and implements the age-old guessing game of gues
 - *Mulliner* (v.1.0.0):
   - [Download for Android](https://github.com/iamtheblackunicorn/rara/releases/download/v.1.0.0/RaRa-v1.0.0-Mulliner-Release.apk) (16.5 MB)
   - [Download for Mac OSX](https://github.com/iamtheblackunicorn/rara/releases/download/v.1.0.0/RaRa-v1.0.0-Mulliner-Release.app.zip) (12.9 MB)
+- *Mulliner* (v.2.0.0):
+  - [Download for Android](https://github.com/iamtheblackunicorn/rara/releases/download/v.2.0.0/RaRa-v2.0.0-Divo-Release.apk) (16.5 MB)
+  - [Download for Mac OSX](https://github.com/iamtheblackunicorn/rara/releases/download/v.2.0.0/RaRa-v2.0.0-Divo-Release.app.zip) (12.9 MB)
 
 ## Building :hammer:
 
@@ -53,6 +56,11 @@ You have now generated a release build of *RaRa*.
 - upload to GitHub
 - polishing of the logic
 - minor fixes
+
+### Version 2.0.0: ***Divo***
+
+- updated design
+- heavily commented for better readability
 
 ## Note :scroll:
 
